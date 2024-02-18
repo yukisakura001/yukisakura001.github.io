@@ -12,9 +12,11 @@
 
     <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
 
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="/theme/stylesheet/dark-theme.min.css">
 
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-          href="/theme/pygments/github.min.css">
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/monokai.min.css">
 
 
 
@@ -53,7 +55,7 @@
 
 
 </head>
-<body class="light-theme">
+<body class="dark-theme">
 
 <aside>
   <div>
@@ -74,7 +76,7 @@
 
             <li>
               <a target="_self"
-                 href="/pages/about.html#about">
+                 href="/pages/about.html">
                 About
               </a>
             </li>
@@ -98,10 +100,10 @@
         </a>
       </li>
       <li>
-        <a class="sc-x"
+        <a class="sc-twitter"
            href="https://twitter.com/yukisakura001"
            target="_blank">
-          <i class="fa-brands fa-x"></i>
+          <i class="fa-brands fa-twitter"></i>
         </a>
       </li>
     </ul>
@@ -113,9 +115,9 @@
 <nav>
   <a href="/">Home</a>
 
-  <a href="/archives.html">Archives</a>
-  <a href="/categories.html">Categories</a>
-  <a href="/tags.html">Tags</a>
+  <a href="/archives.html">記事履歴</a>
+  <a href="/categories.html">カテゴリー</a>
+  <a href="/tags.html">タグ一覧</a>
 
 
 </nav>
@@ -132,27 +134,22 @@
 
 
   <div>
-    <h2>最初の投稿です。</h2>
-<p>Hello <strong>world!</strong> My name is <em>User</em> @Japan.</p>
-<table>
-<thead>
-<tr>
-<th>テスト 1</th>
-<th>テスト 2</th>
-<th>テスト 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>テスト</td>
-<td>テスト</td>
-<td>テスト</td>
-</tr>
-</tbody>
-</table>
-<p><strong>ペリカンを使ってみた.</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world!&#39;</span><span class="p">)</span>
+    <h1 id="_1">目次</h1>
+<div class="toc">
+<ul>
+<li><a href="#_1" rel="nofollow">目次</a></li>
+<li><a href="#_2" rel="nofollow">はじめに</a></li>
+<li><a href="#_3" rel="nofollow">終わりに</a></li>
+<li><a href="#_4" rel="nofollow">メモ</a></li>
+</ul>
+</div>
+<h1 id="_2">はじめに</h1>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a code block.&quot;</span><span class="p">)</span>
 </code></pre></div>
+
+<h1 id="_3">終わりに</h1>
+<h1 id="_4">メモ</h1>
   </div>
   <div class="tag-cloud">
     <p>
@@ -162,11 +159,16 @@
   </div>
 
 
+  <div class="neighbors">
+    <a class="btn float-left" href="/YakIntro.html" title="YAK 紹介">
+      <i class="fa fa-angle-left"></i> Previous Post
+    </a>
+  </div>
 
   <div class="related-posts">
     <h4>You might enjoy</h4>
     <ul class="related-posts">
-      <li><a href="/yak-shao-jie.html">YAK 紹介</a></li>
+      <li><a href="/YakIntro.html">YAK 紹介</a></li>
     </ul>
   </div>
 
@@ -175,7 +177,7 @@
 </article>
 
 <footer>
-<p>&copy;  </p>
+<p>&copy; 2024 雪櫻</p>
 <p>
 Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p></footer>  </main>
