@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/monokai.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="yukisakura" />
+<meta name="description" content="このブログの設計や採用理由を書いていきます" />
+<meta name="keywords" content="ブログ, 初心者向け">
+
+
+  <meta property="og:site_name" content="雪櫻ブログ"/>
+  <meta property="og:title" content="このブログの構成について"/>
+  <meta property="og:description" content="このブログの設計や採用理由を書いていきます"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="/site_design.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2024-02-21 00:00:00+09:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="/author/yukisakura.html">
+  <meta property="article:section" content="一般"/>
+  <meta property="article:tag" content="ブログ"/>
+  <meta property="article:tag" content="初心者向け"/>
+  <meta property="og:image" content="https://yukisakura001.github.io/images/2024-02-18/icon.png">
+
+  <title>雪櫻ブログ &ndash; このブログの構成について</title>
+
+
+</head>
+<body class="dark-theme">
+
+<aside>
+  <div>
+    <a href="/">
+      <img src="https://yukisakura001.github.io/images/2024-02-18/icon.png" alt="雪櫻のブログ" title="雪櫻のブログ">
+    </a>
+
+    <h1>
+      <a href="/">雪櫻のブログ</a>
+    </h1>
+
+    <p>雑多なブログ帳~♪</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+            <li>
+              <a target="_self"
+                 href="/pages/konoburogunitsuite.html">
+                このブログについて
+              </a>
+            </li>
+
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/yukisakura001"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-youtube"
+           href="https://www.youtube.com/@yukisakura_pc"
+           target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/yukisakura001"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="/">Home</a>
+
+  <a href="/archives.html">記事履歴</a>
+  <a href="/categories.html">カテゴリー</a>
+  <a href="/tags.html">タグ一覧</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="site_design">このブログの構成について</h1>
+    <p>
+      Posted on 2024年02月21日 (水) in <a href="/category/yi-ban.html">一般</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1 id="_1">目次</h1>
+<div class="toc">
+<ul>
+<li><a href="#_1" rel="nofollow">目次</a></li>
+<li><a href="#_2" rel="nofollow">この記事を書いた理由</a></li>
+<li><a href="#_3" rel="nofollow">このブログについて</a><ul>
+<li><a href="#_4" rel="nofollow">ブログの構成とツール</a></li>
+<li><a href="#_5" rel="nofollow">なぜこの様な構成になっているのか</a><ul>
+<li><a href="#_6" rel="nofollow">ブログ選びの選択肢</a></li>
+<li><a href="#_7" rel="nofollow">今の構成を選ぶ理由</a></li>
+<li><a href="#_8" rel="nofollow">静的ジェネレーターを利点欠点</a></li>
+<li><a href="#pelican-github-pages" rel="nofollow">Pelican と GitHub Pages を使用した理由</a></li>
+<li><a href="#_9" rel="nofollow">その他ツールについて</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_10" rel="nofollow">終わりに</a></li>
+</ul>
+</div>
+<p><br></p>
+<h1 id="_2">この記事を書いた理由</h1>
+<p>私は前からブログについて興味がありました。</p>
+<p>しかしブログ運営に関する知識がまったくなく、自分の求める要件を満たして実際にブログを始めるまでそこそこ時間がかかってしまいました。</p>
+<p>もし私と同じように「ブログに興味あるけど、知識もまったくないし手間とお金もかけたくない」と考えるワガママな人向けに、今回の記事を（自分のメモも兼ねて）書こうと思いました。</p>
+<p><br></p>
+<h1 id="_3">このブログについて</h1>
+<p><br></p>
+<h2 id="_4">ブログの構成とツール</h2>
+<p>静的サイトジェネレーター ： <em>Pelican</em>（Python でマークダウンを簡単に Web サイトに変換できるツール）</p>
+<p>ホスティングサービス ： <em>GitHub Pages</em>（ここに Web サイトのファイルを設置する）</p>
+<p>Git の操作ツール ： <em>SourceTree</em>（Git を GUI で扱うソフト）</p>
+<p>エディタ ： <em>VScode</em>（記事の執筆・サイト構成の管理・サイトへの変換などを一手に行うツール）</p>
+<p><br></p>
+<h2 id="_5">なぜこの様な構成になっているのか</h2>
+<p><br></p>
+<h3 id="_6">ブログ選びの選択肢</h3>
+<p>ブログを始めようと思うとき、調べてみるとこのような選択肢があると思います。</p>
+<ul>
+<li>ブログ投稿サービス（note とか）</li>
+<li>レンタルサーバー＋ WordPress（多分これが王道）</li>
+<li>一から独自設計（エンジニア向け？。Web アプリのようなもの）</li>
+<li>ホスティングサービス＋静的サイトジェネレーター（うちのブログがこれ）</li>
+</ul>
+<p>が主に選択肢としてあります。</p>
+<p><br></p>
+<h3 id="_7">今の構成を選ぶ理由</h3>
+<p>まず初心者向けでいちばん簡単なのは、ブログ投稿サービスです。</p>
+<p>ブログ投稿サービスでは「記事の投稿・公開・読者とやり取りできる場所」などが全て最初から準備されており、準備もブログの構成についても考慮不要で非常に簡単に始めることができます。</p>
+<p>また特に大手ではユーザーが多く記事の閲覧・反応も得られやすいためモチベーションを維持しやすいという利点もあります。</p>
+<p>そのためブログ初心者に非常におすすめできる選択肢です。</p>
+<p>しかし私がこれを選ばなかった理由（実は少しやってたけど）は、私自身でブログの管理をしたかったからです。</p>
+<p>もしこのブログの趣味が続けば将来的に収益化を目指すことになりますし、慣れたらカスタマイズをしたくなるかもしれません。</p>
+<p>必要ならその時にブログを移行すればいいだけの話ですが、その時に移行しづらい投稿サービスを使うのは個人的にナシでした。</p>
+<p>ならば最も王道で有名な WordPress を使うのが安牌ですが、これも私は却下しました。</p>
+<p>確かに WordPress は情報量も多く、カスタマイズも可能で非常に便利です。</p>
+<p>しかしレンタルサーバーの契約のために費用がかかったり、WordPress についての勉強や準備が必要です。</p>
+<p>ブログが日課となった将来的に始めるなら大アリですが、続くかわからない上に時間もお金も乏しい今の自分が始めるには少し勇気がありませんでした。</p>
+<p>独自設計については、そもそも自分に知識がないため始めから諦めています。</p>
+<p>このような理由で私はお金も時間もかからず、手軽に始められる今の構成でブログを初めることにしました。</p>
+<p><br></p>
+<h3 id="_8">静的ジェネレーターを利点欠点</h3>
+<p>静的サイトジェレーター＋無料のホスティングサービスを選んだときの利点は、以下のようになります。</p>
+<ul>
+<li>
+<p>お金が基本的にかからない</p>
+</li>
+<li>
+<p>慣れた言語の静的サイトジェネレータを使えば、比較的楽に準備できる</p>
+</li>
+<li>
+<p>カスタマイズま WordPress ほどではないがまあまあ効く</p>
+</li>
+<li>
+<p>サイトの管理が分かりやすい（フォルダ構成通り）</p>
+</li>
+</ul>
+<p>一方欠点としては、</p>
+<ul>
+<li>
+<p>完全にサイトが自分のものではない（ホスティングサービスに依存するが、最悪レンタルサーバーに移行できる）</p>
+</li>
+<li>
+<p>高度なことはできない（どうせ高度なことをしない）</p>
+</li>
+<li>
+<p>日本語情報が少ない気がする（これは正直きついため、情報が多いツールを使いたい）</p>
+</li>
+</ul>
+<p>があります。</p>
+<p>この利点の部分が時間もお金も技術もない自分には非常にありがたく、欠点も私は無視できるためこの選択肢を選びました。</p>
+<p><br></p>
+<h3 id="pelican-github-pages">Pelican と GitHub Pages を使用した理由</h3>
+<p>Pelican については、自分が Python が一番慣れているからという理由だけで採用しました。</p>
+<p>しかし情報が古く書いてあることがまちまちだったり、そもそも使う人があまり多くない（体感）ため、他のツールを使ったほうが良さそうな感じはします。</p>
+<p>GitHub Pages については、GitHub なら多少分かることと、ネットに情報が多かったため採用しました。</p>
+<p>実際使ってみると、デプロイも簡単で思ったより Pelican と相性が良さそうだったため、おすすめかなと思います。</p>
+<p><br></p>
+<h3 id="_9">その他ツールについて</h3>
+<p>私が VScode と SourseTree を使っている理由は、自作ソフト開発時に使っていたから慣れていたというだけです。</p>
+<p>ただこの SourceTree は複数アカウントでも使いやすく、もともとメインで使ってた GitHub Desktop よりおすすめだと感じました。（CUI で使えるなら越したことはない）</p>
+<p>ここらへんは各々慣れている手段でいいと思います。</p>
+<p><br></p>
+<h1 id="_10">終わりに</h1>
+<p>このブログの構成についてはこの様になっています。</p>
+<p>今後ブログの始め方についての記事も書こうかなと思っています。（特に Pelican について）</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/burogu.html">ブログ</a>
+      <a href="/tag/chu-xin-zhe-xiang-ke.html">初心者向け</a>
+    </p>
+  </div>
+
+
+  <div class="neighbors">
+    <a class="btn float-left" href="/YAK-Intro.html" title="自作ソフト「Yukis Army knife」の軽い紹介">
+      <i class="fa fa-angle-left"></i> Previous Post
+    </a>
+  </div>
+
+  <div class="related-posts">
+    <h4>You might enjoy</h4>
+    <ul class="related-posts">
+      <li><a href="/FirstPost.html">ブログ始めました</a></li>
+    </ul>
+  </div>
+
+
+
+</article>
+
+<footer>
+<p>&copy; 2024 雪櫻</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 雪櫻ブログ ",
+  "url" : "",
+  "image": "https://yukisakura001.github.io/images/2024-02-18/icon.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
