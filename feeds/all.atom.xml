@@ -5,11 +5,11 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#_1" rel="nofollow"&gt;目次&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#_2" rel="nofollow"&gt;始めに&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#_3" rel="nofollow"&gt;インストール型&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#_3" rel="nofollow"&gt;インストールタイプ&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#_4" rel="nofollow"&gt;特徴&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#_5" rel="nofollow"&gt;ポータブル型&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#_5" rel="nofollow"&gt;ポータブルタイプ&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#_6" rel="nofollow"&gt;特徴&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -36,7 +36,7 @@
 &lt;p&gt;もしこのページを読んでも理解出来なさそうなら、前に作った動画での解説もあるので、そちらを見てみてください。&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/UPGhaOXs7zQ?si=dXPiLdoHypxdajfn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;h1 id="_3"&gt;&lt;font color="#ff5a09"&gt;インストール型&lt;/font&gt;&lt;/h1&gt;
+&lt;h1 id="_3"&gt;&lt;font color="#ff5a09"&gt;インストールタイプ&lt;/font&gt;&lt;/h1&gt;
 &lt;p&gt;このタイプは、「インターネットからダウンロードしたソフトをパソコンに登録する」タイプです。&lt;/p&gt;
 &lt;p&gt;このソフトをパソコンに登録する作業のことを「インストール」と呼びます。&lt;/p&gt;
 &lt;p&gt;このようにソフトを導入するために必要な「インストーラー」と呼ばれるものをダウンロードし、そのインストーラーを使ってパソコンに登録するのが導入方法です。&lt;/p&gt;
@@ -50,7 +50,7 @@
 &lt;li&gt;有名なソフトは大体このタイプ&lt;br&gt;（Office や Chrome や Adobe など）&lt;/li&gt;
 &lt;li&gt;削除するときは、ソフトの削除機能を使うか、Windows の削除機能を使うしかない&lt;br&gt;（アイコンを消してもパソコンからソフトは無くなっていないため注意）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id="_5"&gt;&lt;font color="#ff5a09"&gt;ポータブル型&lt;/font&gt;&lt;/h1&gt;
+&lt;h1 id="_5"&gt;&lt;font color="#ff5a09"&gt;ポータブルタイプ&lt;/font&gt;&lt;/h1&gt;
 &lt;p&gt;このタイプは、「インターネットからダウンロードしたソフトを登録せずそのまま使う」タイプです。&lt;/p&gt;
 &lt;p&gt;インストール対応とは異なり、パソコンにソフトを登録せずに使います。&lt;/p&gt;
 &lt;p&gt;また多くの場合は、インストーラーの代わりにソフト本体を圧縮した圧縮ファイルをダウンロードします。&lt;/p&gt;
