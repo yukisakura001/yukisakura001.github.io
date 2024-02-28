@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-02-28T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>自作した絵文字検索ツール（仮）の埋葬</title><link href="/emoji_mytool.html" rel="alternate"></link><published>2024-02-28T00:00:00+09:00</published><updated>2024-02-28T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-02-28:/emoji_mytool.html</id><summary type="html">&lt;p&gt;絵文字を検索するソフトを作りましたが、没になったのでここに埋葬します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-02-28/emoji_mytool/icat.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-02-28T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>自作した絵文字検索ツール（仮）の埋葬</title><link href="/emoji_mytool.html" rel="alternate"></link><published>2024-02-28T00:00:00+09:00</published><updated>2024-02-28T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-02-28:/emoji_mytool.html</id><summary type="html">&lt;p&gt;絵文字を検索するソフトを作りましたが、没になったのでここに埋葬します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-02-28/emoji_mytool/icat.webp"&gt;&lt;/p&gt;
 &lt;p&gt;もともと Yukis Army knife に組み込む予定で「絵文字検索ツール」を作りましたが、本実装を諦めたのでここにコードを埋葬します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tkinter&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tk&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tkinter.ttk&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;ttk&lt;/span&gt;
@@ -173,7 +173,7 @@
 &lt;p&gt;このソフトをパソコンに登録する作業のことを「インストール」と呼びます。&lt;/p&gt;
 &lt;p&gt;このようにソフトを導入するために必要な「インストーラー」と呼ばれるものをダウンロードし、そのインストーラーを使ってパソコンに登録するのが導入方法です。&lt;/p&gt;
 &lt;p&gt;インストーラーはマウスでダブルクリックすれば起動し、出てくる説明通りに設定をすれば簡単に登録ができます。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="インストール図" src="/images/2024-02-27/install.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="インストール図" src="/images/2024-02-27/install.webp"&gt;&lt;/p&gt;
 &lt;h2 id="_4"&gt;&lt;font color="#ff5a09"&gt;特徴&lt;/font&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -198,7 +198,7 @@
 &lt;p&gt;また多くの場合は、インストーラーの代わりにソフト本体を圧縮した圧縮ファイルをダウンロードします。&lt;/p&gt;
 &lt;p&gt;そのためソフトを使用する前に圧縮ファイルの解凍をしなければなりません。&lt;/p&gt;
 &lt;p&gt;圧縮するとフォルダの中に様々なファイルがありますが、一般的にソフトの本体は「ソフト名.exe」という名前のファイルです。（本体をダブルクリックすればソフトを起動できます）&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ポータブル図" src="/images/2024-02-27/portable.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ポータブル図" src="/images/2024-02-27/portable.webp"&gt;&lt;/p&gt;
 &lt;h2 id="_6"&gt;&lt;font color="#ff5a09"&gt;特徴&lt;/font&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -222,7 +222,7 @@
 &lt;p&gt;インストールタイプと同じようにパソコンへ登録されるため、管理が不要です。&lt;/p&gt;
 &lt;p&gt;また大体完全に自動でアップデートもされるため、スマホアプリと同じ感覚で導入・管理ができます。&lt;/p&gt;
 &lt;p&gt;ストアの種類には、基本的な「Microsoft ストア」だけでなく、ゲームに特化した「Steam」や、有名ソフトがありコマンドで管理できる「Chocolatey」などがあります。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ストア図" src="/images/2024-02-27/store.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ストア図" src="/images/2024-02-27/store.webp"&gt;&lt;/p&gt;
 &lt;h2 id="_8"&gt;&lt;font color="#ff5a09"&gt;特徴&lt;/font&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -242,7 +242,7 @@
 &lt;p&gt;これはパソコンにソフトを導入せず、ブラウザ（インターネットを開くときに使うやつ）でツールを使用するタイプです。&lt;/p&gt;
 &lt;p&gt;パソコンへの導入が不要であり、web サイトを見るのと同じ感覚で起動できるため気軽に使い始められます。&lt;/p&gt;
 &lt;p&gt;アップデートなどは不要で、管理も URL をメモっておけばいいので簡単です。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Webアプリ図" src="/images/2024-02-27/web.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Webアプリ図" src="/images/2024-02-27/web.webp"&gt;&lt;/p&gt;
 &lt;h2 id="_9"&gt;&lt;font color="#ff5a09"&gt;特徴&lt;/font&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -270,7 +270,7 @@
 &lt;p&gt;拡張機能の管理や削除などは全てブラウザで行います。&lt;/p&gt;
 &lt;p&gt;ブラウザに導入する都合上、このツールはブラウザ内でしか使えません。&lt;/p&gt;
 &lt;p&gt;ブラウザはパソコンの中で最も使用頻度と使用時間が長いため、拡張機能を使うことでより便利で効率的に使用することができます。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="拡張機能図" src="/images/2024-02-27/ext.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="拡張機能図" src="/images/2024-02-27/ext.webp"&gt;&lt;/p&gt;
 &lt;h2 id="_11"&gt;&lt;font color="#ff5a09"&gt;特徴&lt;/font&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -289,7 +289,7 @@
 &lt;h1 id="_12"&gt;&lt;font color="#ff5a09"&gt;最後&lt;/font&gt;&lt;/h1&gt;
 &lt;p&gt;パソコン上でソフトやアプリと呼ばれるもの 5 種類を紹介しました。&lt;/p&gt;
 &lt;p&gt;一見大変そうに思えますが、慣れれば毎回説明を読まずともソフトを使えるようになるので、頑張ってください。&lt;/p&gt;
-&lt;p&gt;各タイプにおけるソフトの具体的な導入方法は上記の動画に乗っていますので、ぜひそちらで確認してください。&lt;/p&gt;</content><category term="一般"></category><category term="効率化"></category><category term="初心者向け"></category><category term="生活"></category></entry><entry><title>便利なのに知られていない Windows デフォルト機能を紹介</title><link href="/windows_simple_tool.html" rel="alternate"></link><published>2024-02-27T00:00:00+09:00</published><updated>2024-02-27T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-02-27:/windows_simple_tool.html</id><summary type="html">&lt;p&gt;Windows に初期搭載されている、簡単で便利な機能を紹介していきます&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="\images\2024-02-27\windows_simple_tool\icat.png"&gt;&lt;/p&gt;
+&lt;p&gt;各タイプにおけるソフトの具体的な導入方法は上記の動画に乗っていますので、ぜひそちらで確認してください。&lt;/p&gt;</content><category term="一般"></category><category term="効率化"></category><category term="初心者向け"></category><category term="生活"></category></entry><entry><title>便利なのに知られていない Windows デフォルト機能を紹介</title><link href="/windows_simple_tool.html" rel="alternate"></link><published>2024-02-27T00:00:00+09:00</published><updated>2024-02-27T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-02-27:/windows_simple_tool.html</id><summary type="html">&lt;p&gt;Windows に初期搭載されている、簡単で便利な機能を紹介していきます&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="\images\2024-02-27\windows_simple_tool\icat.webp"&gt;&lt;/p&gt;
 &lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
@@ -401,7 +401,7 @@
 &lt;p&gt;他にもたくさんありますが、とりあえずここに載ってるのを覚えるだけで非常に作業が楽になるのでオススメです。&lt;/p&gt;
 &lt;h1 id="_7"&gt;&lt;font color="#ff5a09"&gt;最後に&lt;/font&gt;&lt;/h1&gt;
 &lt;p&gt;Windwos に初期搭載されている便利な機能について書きました。&lt;/p&gt;
-&lt;p&gt;今回は比較的簡単に使用でき、なおかつ使い所も多い機能を紹介しましたが、これ以外にも動画編集・画像編集など非常に便利な機能が初期から搭載されているため、ぜひ調べて使ってみてください。&lt;/p&gt;</content><category term="ツール紹介"></category><category term="効率化"></category><category term="初心者向け"></category></entry><entry><title>Yukis Army knife ver6.4 公開</title><link href="/yak_update6_4.html" rel="alternate"></link><published>2024-02-27T00:00:00+09:00</published><updated>2024-02-27T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-02-27:/yak_update6_4.html</id><summary type="html">&lt;p&gt;Yukis Army knife の最新バージョン ver6.4 を公開しました。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-02-27/yak_update6_4/icat.png"&gt;&lt;/p&gt;
+&lt;p&gt;今回は比較的簡単に使用でき、なおかつ使い所も多い機能を紹介しましたが、これ以外にも動画編集・画像編集など非常に便利な機能が初期から搭載されているため、ぜひ調べて使ってみてください。&lt;/p&gt;</content><category term="ツール紹介"></category><category term="効率化"></category><category term="初心者向け"></category></entry><entry><title>Yukis Army knife ver6.4 公開</title><link href="/yak_update6_4.html" rel="alternate"></link><published>2024-02-27T00:00:00+09:00</published><updated>2024-02-27T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-02-27:/yak_update6_4.html</id><summary type="html">&lt;p&gt;Yukis Army knife の最新バージョン ver6.4 を公開しました。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-02-27/yak_update6_4/icat.webp"&gt;&lt;/p&gt;
 &lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
