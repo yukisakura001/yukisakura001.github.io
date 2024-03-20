@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-03-17T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>Python 開発でおすすめな VScode 拡張機能</title><link href="/python_vscode_extension.html" rel="alternate"></link><published>2024-03-17T00:00:00+09:00</published><updated>2024-03-17T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-17:/python_vscode_extension.html</id><summary type="html">&lt;p&gt;Python を使って開発する人向けに、私が使って便利だった VScode を紹介します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-17/python_vscode_extension/icat.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-03-20T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>ttkthemes（などのテーマ系ライブラリ）と tkinterDnD2 を両立する方法</title><link href="/tkinter_theme_tkinterdnd2.html" rel="alternate"></link><published>2024-03-20T00:00:00+09:00</published><updated>2024-03-20T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-20:/tkinter_theme_tkinterdnd2.html</id><summary type="html">&lt;p&gt;Tkinter の有名な拡張ライブラリである tkinterDnD2 と、ttkthemes などのテーマ系ライブラリを両立するコードを書いています。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-20/tkinter_theme_tkinterdnd2/icat.png"&gt;&lt;/p&gt;
+&lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;&lt;strong&gt;はじめに&lt;/strong&gt;&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;Python に標準でついている GUI フレームワークとして、Tkinter があります。&lt;/p&gt;
+&lt;p&gt;Tkinter は単体でも使えますが、より便利に使うために様々な拡張機能が外部ライブラリとして存在しており、その中でも有名なものとして以下の２つがあります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Tkinter のテーマを大量に追加する「ttkthemes」&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tkinter で作ったウィンドウでドラッグ・アンド・ドロップを可能にする「tkinterDnD2」&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この２つのライブラリは非常に便利ですが、どちらも独自の TK()クラスを用いるため競合するため、そのままでは両立する事ができません。&lt;/p&gt;
+&lt;p&gt;そのため今回は両立を可能にするコードをこのページにメモしておこうと思います。&lt;/p&gt;
+&lt;p&gt;このやり方は customtkinter や ttkbootstrap でも継承元クラス（今回は ThemedTk）を変更すれば可能なやり方なので、そこで詰まったら参考にしてください（このコードは参考サイトのほぼ丸パクリです）&lt;/p&gt;
+&lt;h1 id="_2"&gt;&lt;font color="#ff5a09"&gt;&lt;strong&gt;コード&lt;/strong&gt;&lt;/font&gt;&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Tk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ThemedTk&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;TkinterDnD&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DnDWrapper&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TkdndVersion&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TkinterDnD&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id="_3"&gt;&lt;font color="#ff5a09"&gt;&lt;strong&gt;終わりに&lt;/strong&gt;&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;このテーマ系ライブラリと tkinterDnD2 の競合は意に日本語サイトで取り上げられてないので書いてみました。&lt;/p&gt;
+&lt;p&gt;これは StackOverFlow をほぼ丸パクリしたものですが、元のサイトでは ttkthemes ではなく customtkinter で紹介されています。&lt;/p&gt;
+&lt;p&gt;参考サイト：&lt;a href="https://stackoverflow.com/questions/75526264/using-drag-and-drop-files-or-file-picker-with-customtkinter" rel="nofollow"&gt;https://stackoverflow.com/questions/75526264/using-drag-and-drop-files-or-file-picker-with-customtkinter&lt;/a&gt;&lt;/p&gt;</content><category term="雑記"></category><category term="プログラミング"></category><category term="初心者向け"></category></entry><entry><title>Python 開発でおすすめな VScode 拡張機能</title><link href="/python_vscode_extension.html" rel="alternate"></link><published>2024-03-17T00:00:00+09:00</published><updated>2024-03-17T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-17:/python_vscode_extension.html</id><summary type="html">&lt;p&gt;Python を使って開発する人向けに、私が使って便利だった VScode を紹介します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-17/python_vscode_extension/icat.png"&gt;&lt;/p&gt;
 &lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
