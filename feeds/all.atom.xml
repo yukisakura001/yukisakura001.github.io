@@ -1,5 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-03-22T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>Yukis Army knife ver6.5 公開</title><link href="/yak_update6_5.html" rel="alternate"></link><published>2024-03-22T00:00:00+09:00</published><updated>2024-03-22T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-22:/yak_update6_5.html</id><summary type="html">&lt;p&gt;Yukis Army knife が ver6.5 にアップデートしました。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-22/yak_update6_5/icat.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-03-23T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>tkinter でウィジェットを自動的に大量配置する方法</title><link href="/tkinter_auto_set.html" rel="alternate"></link><published>2024-03-23T00:00:00+09:00</published><updated>2024-03-23T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-23:/tkinter_auto_set.html</id><summary type="html">&lt;p&gt;tkinter でボタンなどウィジェットの定義と配置を自動的に行うやり方を紹介します。他のライブラリなどでも応用可能です。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-23/tkinter_auto_set/icat.png"&gt;&lt;/p&gt;
+&lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#_1" rel="nofollow"&gt;目次&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#thinter" rel="nofollow"&gt;thinter でウィジェットを配置する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_2" rel="nofollow"&gt;今回紹介するやり方の考え方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_3" rel="nofollow"&gt;文字列を変数・関数名に変更するコード&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_4" rel="nofollow"&gt;終わりに&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="thinter"&gt;&lt;font color="#ff5a09"&gt;thinter でウィジェットを配置する方法&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;tkinter では「ウィジェットで使う変数や関数の定義 → ウィジェットの定義 → ウィジェットの配置」という順番でコードを書いていきます。&lt;/p&gt;
+&lt;p&gt;例としてこのような形です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tkinter&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tk&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ソフトのウィンドウを作成&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tk&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ボタンクリック時の関数定義&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;button_click&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;aaa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ボタンの定義&lt;/span&gt;
+&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;aaaを表示&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;button_click&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ボタンを実際に配置&lt;/span&gt;
+&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;place&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ソフトの維持&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mainloop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;しかしソフト製作時など、ボタンを大量に定義・配置するのが面倒くさいと感じる人がいるかも知れません。&lt;/p&gt;
+&lt;p&gt;一応ネットで調べると、「functools ライブラリの partial」を使う方法が出てきますが、この方法ではボタンの大量定義と配置はできてもボタンの変数を区別できないため、後から呼び出すことができません。&lt;/p&gt;
+&lt;p&gt;そこで今回はボタンの変数を個別に分けて定義しつつ、大量に配置していく方法を紹介していきます。&lt;/p&gt;
+&lt;h1 id="_2"&gt;&lt;font color="#ff5a09"&gt;今回紹介するやり方の考え方&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;今回紹介する方法では、「ループごとに個別の変数を定義し、各ボタンを振り分ける」ということを行っていきます。&lt;/p&gt;
+&lt;p&gt;しかし、個別にボタンの変数を定義するためには「ループごとに異なる変数の定義・ボタンに対応した関数の呼び出し」が必要であり、このやり方はあまり有名ではないです。&lt;/p&gt;
+&lt;p&gt;ここでは「ループごとに異なる文字列を生成 → 文字列を変数や関数名に変換する」を行うことで、個別のボタン変数を定義・配置していきます。&lt;/p&gt;
+&lt;h1 id="_3"&gt;&lt;font color="#ff5a09"&gt;文字列を変数・関数名に変更するコード&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;Python ではこのように簡単に文字列を変数名に変換する事ができます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# グローバル関数の定義&lt;/span&gt;
+&lt;span class="n"&gt;global_variable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;グローバル変数ですよ&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 文字列を使って変数名を呼び出し&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;globals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;global_variable&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 出力結果&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;グローバル変数ですよ&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# ローカル変数を呼び出す場所の作成&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;function_example&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# ローカル関数の定義&lt;/span&gt;
+    &lt;span class="n"&gt;local_variable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ローカル変数ですよ&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 文字列を使って変数名を呼び出し&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;locals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;local_variable&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 関数呼び出し&lt;/span&gt;
+&lt;span class="n"&gt;function_example&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 出力結果&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;ローカル変数ですよ&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;この例は変数名をテキストから変換していますが、関数も全く同じやり方で呼び出すことができます。&lt;/p&gt;
+&lt;p&gt;なお上記の通りグローバル変数とローカル変数では呼び出し方が異なるので注意してください。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;globals()[]&lt;/code&gt;や&lt;code&gt;locals()[]&lt;/code&gt;の中身は文字列ならばよいため、ループごとに異なる文字列を作るようにすれば異なる変数・関数を作ることができます。&lt;/p&gt;
+&lt;p&gt;実際にボタンを設置した例がこちらです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tkinter&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tk&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ソフトのウィンドウを作成&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tk&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ボタンクリック時の関数定義&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;button_click1&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;aaa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;button_click2&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;bbb&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;button_click3&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ccc&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ボタンの定義と配置を自動化&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="nb"&gt;globals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;button&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;表示&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;globals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;button_click&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+   
+    &lt;span class="nb"&gt;globals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;button&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ソフトの維持&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mainloop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;このようにコードを書くことで、ボタンの定義とボタンの配置を自動化できます。&lt;/p&gt;
+&lt;p&gt;このやり方だと変数名や関数名が制限されてしまいますが、リストを活用するなどで対策は可能です。&lt;/p&gt;
+&lt;p&gt;このやり方は tkinter 以外のライブラリでも使えますし、覚えておくと便利なやり方ですので、ぜひ覚えていってください。&lt;/p&gt;
+&lt;h1 id="_4"&gt;&lt;font color="#ff5a09"&gt;終わりに&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;このやり方は、Yukis Army knife という自作ソフトでボタンを大量配置するのがめんどくさくなったため考えました。&lt;/p&gt;
+&lt;p&gt;Yukis Army knife では実際もっと複雑なやり方でボタンの振り分け・配置をしていますが、基本今回紹介したやり方です。&lt;/p&gt;
+&lt;p&gt;変数名や関数名を文字列から変換するコードは他にもあるようですが、多分このやり方が一番分かりやすいと思います。&lt;/p&gt;
+&lt;p&gt;なおソフト外部からの操作が介在する場所に、このやり方は使わないでください。&lt;/p&gt;
+&lt;p&gt;例えばテキスト入力欄の内容をこの globals 関数などに入れてしまうと、任意のコードが実行可能になり良くない結果となるため、基本的に定数の時のみこの関数を使ってください。&lt;/p&gt;</content><category term="雑記"></category><category term="プログラミング"></category></entry><entry><title>Yukis Army knife ver6.5 公開</title><link href="/yak_update6_5.html" rel="alternate"></link><published>2024-03-22T00:00:00+09:00</published><updated>2024-03-22T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-22:/yak_update6_5.html</id><summary type="html">&lt;p&gt;Yukis Army knife が ver6.5 にアップデートしました。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-22/yak_update6_5/icat.png"&gt;&lt;/p&gt;
 &lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
