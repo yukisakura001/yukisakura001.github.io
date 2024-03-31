@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-03-28T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>Pygments で日本語フォントの画像を出力する方法</title><link href="/pygments_japanese_font.html" rel="alternate"></link><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-28:/pygments_japanese_font.html</id><summary type="html">&lt;p&gt;Pygments ライブラリで画像を出力する際に、日本語フォントを指定する方法を紹介します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-28/pygments_japanese_font/icat.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>雪櫻ブログ</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2024-03-31T00:00:00+09:00</updated><subtitle>雑多なブログ帳~♪</subtitle><entry><title>GitHub Release でのダウンロード数を Python から取得する方法</title><link href="/github_release_file_download.html" rel="alternate"></link><published>2024-03-31T00:00:00+09:00</published><updated>2024-03-31T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-31:/github_release_file_download.html</id><summary type="html">&lt;p&gt;GitHub Release で公開されているファイルのダウンロード数を Python から取得する方法を紹介します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-31/github_release_file_download/icat.png"&gt;&lt;/p&gt;
+&lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#_1" rel="nofollow"&gt;目次&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_2" rel="nofollow"&gt;はじめに&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_3" rel="nofollow"&gt;コード&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_4" rel="nofollow"&gt;簡単な概要&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_5" rel="nofollow"&gt;終わりに&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="_2"&gt;&lt;font color="#ff5a09"&gt;はじめに&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;私は Yukis Army knife というソフトを作っているのですが、ある時「このソフトはどのくらいダウンロードされているんだろう？」と疑問に持ちました。&lt;/p&gt;
+&lt;p&gt;そこで Release ページからダウンロード数の取得方法を調べたので、Python で実際の取得方法を書こうと思います。&lt;/p&gt;
+&lt;h1 id="_3"&gt;&lt;font color="#ff5a09"&gt;コード&lt;/font&gt;&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+
+&lt;span class="n"&gt;ori_url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;URLを入力してください: &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ori_url&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;github.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;api.github.com/repos&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tag&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;headers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Accept&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;application/vnd.github.v3+json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;data_list&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;asset&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;assets&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+        &lt;span class="n"&gt;data_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;asset&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;asset&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;download_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data_list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+       
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;エラー: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id="_4"&gt;&lt;font color="#ff5a09"&gt;簡単な概要&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;調べてみたら Release でのダウンロード数取得は GitHubAPI 経由でしか行えないようです。&lt;/p&gt;
+&lt;p&gt;そこで Release ページの URL から API に変換しデータを取得するコードが上のコードです。&lt;/p&gt;
+&lt;p&gt;ファイルを実行すると Release ページの URL の入力が求められ、入力して Enter を押すと各ファイルのダウンロード数が表示されます。&lt;/p&gt;
+&lt;p&gt;このままでも使えますが、少し書き直して GUI で使えるようにしても良いかもしれません。&lt;/p&gt;
+&lt;p&gt;注意点ですが、これは GitHub API を使っている都合上、同一 IP アドレスからのアクセスは一時間あたり 60 回まで制限されています。&lt;/p&gt;
+&lt;p&gt;またそうでなくても、GitHub API を使って過剰なアクセスをすることは規約から禁じられているため、データの加工などを行う際には一度 json として保存してから行ってください。&lt;/p&gt;
+&lt;h1 id="_5"&gt;&lt;font color="#ff5a09"&gt;終わりに&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;今回は Release でのファイルダウンロード数の取得方法について書きました。&lt;/p&gt;
+&lt;p&gt;もしかしたら Flet を使ったソフトにして公開するかもしれません（Flet の練習も兼ねて）。&lt;/p&gt;</content><category term="一般"></category><category term="プログラミング"></category><category term="効率化"></category><category term="初心者向け"></category></entry><entry><title>Pygments で日本語フォントの画像を出力する方法</title><link href="/pygments_japanese_font.html" rel="alternate"></link><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-03-28:/pygments_japanese_font.html</id><summary type="html">&lt;p&gt;Pygments ライブラリで画像を出力する際に、日本語フォントを指定する方法を紹介します。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-03-28/pygments_japanese_font/icat.png"&gt;&lt;/p&gt;
 &lt;h1 id="_1"&gt;&lt;font color="#ff5a09"&gt;目次&lt;/font&gt;&lt;/h1&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
