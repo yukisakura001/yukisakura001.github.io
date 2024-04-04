@@ -1,0 +1,80 @@
+<!doctype html><html lang=ja><meta charset=utf-8><meta content=IE=edge http-equiv=X-UA-Compatible><meta content=True name=HandheldFriendly><meta content=width=device-width,initial-scale=1.0 name=viewport><meta name=robots><link href=https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap rel=stylesheet><link href=/theme/stylesheet/style.min.css rel=stylesheet><link rel="shortcut icon" href=https://yukisakura001.github.io/favicon.ico type=image/vnd.microsoft.icon><link href=https://yukisakura001.github.io/favicon.ico rel=icon><link href=/theme/pygments/monokai.min.css id=pygments-light-theme rel=stylesheet><link href=/theme/font-awesome/css/fontawesome.css rel=stylesheet><link href=/theme/font-awesome/css/brands.css rel=stylesheet><link href=/theme/font-awesome/css/solid.css rel=stylesheet><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href=favicon.ico rel=icon type=image/x-icon><link title="雪櫻ブログ Atom" href=/feeds/all.atom.xml rel=alternate type=application/atom+xml><meta content=yukisakura name=author><meta content="初めて Flet でアプリを作ってみたので紹介します。" name=description><meta content="プログラミング, 自作ツール, 効率化" name=keywords><meta content=雪櫻ブログ property=og:site_name><meta content="Flet で GitHub Release のダウンロード数を取得するアプリを作ってみた" property=og:title><meta content="初めて Flet でアプリを作ってみたので紹介します。" property=og:description><meta content=en_US property=og:locale><meta content=/python_flet_appfirst.html property=og:url><meta content=article property=og:type><meta content="2024-04-04 00:00:00+09:00" property=article:published_time><meta property=article:modified_time><meta content=/author/yukisakura.html property=article:author><meta content=自作ツール property=article:section><meta content=プログラミング property=article:tag><meta content=自作ツール property=article:tag><meta content=効率化 property=article:tag><meta content=/images/2024-02-18/icon.png property=og:image><title>雪櫻ブログ – Flet で GitHub Release のダウンロード数を取得するアプリを作ってみた</title><meta content=website property=og:type><meta content=雪櫻ブログ property=og:site_name><meta content="雪櫻ブログ | Flet で GitHub Release のダウンロード数を取得するアプリを作ってみた" property=og:title><meta content=https://yukisakura001.github.io//python_flet_appfirst.html property=og:url><meta content=https://yukisakura001.github.io/images/2024-04-04/python_flet_appfirst/icat.png property=og:image><body class=light-theme><aside><div><a href=/> <img alt=雪櫻のブログ src=/images/2024-02-18/icon.png title=雪櫻のブログ> </a><h1><a href=/>雪櫻のブログ</a></h1><p>雑多なブログ帳~♪<nav><ul class=list><li><a href=/pages/konoburogunitsuite.html> このブログについて </a></ul></nav><ul class=social><li><a class=sc-github href=https://github.com/yukisakura001 target=_blank> <i class="fa-brands fa-github"></i> </a><li><a class=sc-youtube href=https://www.youtube.com/@yukisakura_pc target=_blank> <i class="fa-brands fa-youtube"></i> </a><li><a class=sc-twitter href=https://twitter.com/yukisakura001 target=_blank> <i class="fa-brands fa-twitter"></i> </a><li><a class=sc-rss href=feeds/all.atom.xml target=_blank> <i class="fa-solid fa-rss"></i> </a></ul></div></aside><main><nav><a href=/>Home</a><a href=/archives.html>記事履歴</a><a href=/categories.html>カテゴリー</a><a href=/tags.html>タグ一覧</a><a href=/feeds/all.atom.xml>Atom</a></nav><article class=single><header><h1 id=python_flet_appfirst>Flet で GitHub Release のダウンロード数を取得するアプリを作ってみた</h1><p>Posted on 2024年04月04日 (木) in <a href=/category/zi-zuo-tsu-ru.html>自作ツール</a></header><div><p><img alt=アイキャッチ src=/images/2024-04-04/python_flet_appfirst/icat.png><h1 id=_1><font color=#ff5a09>目次</font></h1><div class=toc><ul><li><a href=#_1 rel=nofollow>目次</a><li><a href=#_2 rel=nofollow>はじめに</a><li><a href=#flet rel=nofollow>Flet とは</a><li><a href=#_3 rel=nofollow>作ったもの</a><li><a href=#_4 rel=nofollow>コード</a><li><a href=#_5 rel=nofollow>感想</a></ul></div><h1 id=_2><font color=#ff5a09>はじめに</font></h1><p>前から興味を持っていた Flet で初めてアプリを作ってみました。<p>とても使いやすかく気に入ったので、今回紹介していこうと思います。<h1 id=flet><font color=#ff5a09>Flet とは</font></h1><p><a href=https://flet.dev/docs/ rel=nofollow>Flet 公式ドキュメント</a><p>Flet はクロスプラットフォームに対応したフレームワークである Flutter を元に作られた、Python の GUI ライブラリです。<p>近年できた GUI ライブラリであるため非常に見た目が優れており、また Web, Mobile, Desktop に対応したモダンなアプリを Python だけで作ることができます。<p>また標準 GUI ライブラリである tkinter と比べて以下の利点があります。<ul><li><p>ウィジェットが非常に豊富で、カスタマイズ性も高い</p><li><p>ウィジェットを構造的に設置できる（配置が分かりやすい）</p><li><p>PC ソフトも web アプリもスマホアプリもこれ一つで作れる</p><li><p>公式ドキュメントがかなり充実している</p></ul><p>逆に欠点は、<ul><li><p>解説記事が少ない</p><li><p>外部ライブラリである</p><li><p>ファイルの D&D に対応していない</p><li><p>無料版 ChatGPT だとコードを書いてくれない（2024/04/03 時点）</p></ul><p>程度であり、これらが問題ない状況なら tkinter よりもオススメです。<p>また tkinter と同じく商用利用にも使えるため、安心して開発・公開することもできます。<h1 id=_3><font color=#ff5a09>作ったもの</font></h1><p>今回作ったと言っても<a href=https://yukisakura001.github.io/github_release_file_download.html rel=nofollow>雪櫻ブログ – GitHub Release でのダウンロード数を Python から取得する方法</a>に GUI を付けただけです。<p>また今回実行ファイルとして公開する気はないので、コードの記載のみとなります。<h1 id=_4><font color=#ff5a09>コード</font></h1><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>flet</span> <span class=k>as</span> <span class=nn>ft</span>
+<span class=kn>import</span> <span class=nn>requests</span>
+
+<span class=k>def</span> <span class=nf>main</span><span class=p>(</span><span class=n>page</span><span class=p>:</span> <span class=n>ft</span><span class=o>.</span><span class=n>Page</span><span class=p>):</span>
+
+    <span class=k>def</span> <span class=nf>on_click</span><span class=p>(</span><span class=n>e</span><span class=p>):</span>
+        <span class=n>ori_url</span><span class=o>=</span><span class=n>entry</span><span class=o>.</span><span class=n>value</span>
+        <span class=n>url</span> <span class=o>=</span> <span class=n>ori_url</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s2>"github.com"</span><span class=p>,</span> <span class=s2>"api.github.com/repos"</span><span class=p>)</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s2>"tag"</span><span class=p>,</span> <span class=s2>"tags"</span><span class=p>)</span>
+        <span class=n>headers</span> <span class=o>=</span> <span class=p>{</span><span class=s2>"Accept"</span><span class=p>:</span> <span class=s2>"application/vnd.github.v3+json"</span><span class=p>}</span>
+        <span class=k>try</span><span class=p>:</span>
+            <span class=n>response</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>)</span>
+            <span class=k>if</span> <span class=n>response</span><span class=o>.</span><span class=n>status_code</span> <span class=o>==</span> <span class=mi>200</span><span class=p>:</span>
+                <span class=n>data</span> <span class=o>=</span> <span class=n>response</span><span class=o>.</span><span class=n>json</span><span class=p>()</span>
+                <span class=n>data_list</span><span class=o>=</span><span class=p>[]</span>
+                <span class=k>for</span> <span class=n>asset</span> <span class=ow>in</span> <span class=n>data</span><span class=p>[</span><span class=s1>'assets'</span><span class=p>]:</span>
+                    <span class=n>data_list</span><span class=o>.</span><span class=n>append</span><span class=p>([</span><span class=n>asset</span><span class=p>[</span><span class=s1>'name'</span><span class=p>],</span> <span class=nb>str</span><span class=p>(</span><span class=n>asset</span><span class=p>[</span><span class=s1>'download_count'</span><span class=p>])])</span>
+                <span class=n>table</span><span class=o>.</span><span class=n>rows</span><span class=o>.</span><span class=n>clear</span><span class=p>()</span>
+
+                <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>data_list</span><span class=p>:</span>
+                    <span class=n>table</span><span class=o>.</span><span class=n>rows</span><span class=o>.</span><span class=n>append</span><span class=p>(</span>
+                        <span class=n>ft</span><span class=o>.</span><span class=n>DataRow</span><span class=p>(</span>
+                            <span class=n>cells</span><span class=o>=</span><span class=p>[</span>
+                                <span class=n>ft</span><span class=o>.</span><span class=n>DataCell</span><span class=p>(</span><span class=n>ft</span><span class=o>.</span><span class=n>Text</span><span class=p>(</span><span class=n>i</span><span class=p>[</span><span class=mi>0</span><span class=p>])),</span>
+                                <span class=n>ft</span><span class=o>.</span><span class=n>DataCell</span><span class=p>(</span><span class=n>ft</span><span class=o>.</span><span class=n>Text</span><span class=p>(</span><span class=n>i</span><span class=p>[</span><span class=mi>1</span><span class=p>])),</span>
+                            <span class=p>],</span>
+                        <span class=p>),</span>
+                    <span class=p>)</span>
+
+                <span class=n>page</span><span class=o>.</span><span class=n>update</span><span class=p>()</span>
+
+            <span class=k>else</span><span class=p>:</span>
+                <span class=n>page</span><span class=o>.</span><span class=n>dialog</span> <span class=o>=</span> <span class=n>dlg</span>
+                <span class=n>dlg</span><span class=o>.</span><span class=n>open</span> <span class=o>=</span> <span class=kc>True</span>
+                <span class=n>page</span><span class=o>.</span><span class=n>update</span><span class=p>()</span>
+
+        <span class=k>except</span><span class=p>:</span>
+
+            <span class=n>page</span><span class=o>.</span><span class=n>dialog</span> <span class=o>=</span> <span class=n>dlg</span>
+            <span class=n>dlg</span><span class=o>.</span><span class=n>open</span> <span class=o>=</span> <span class=kc>True</span>
+            <span class=n>page</span><span class=o>.</span><span class=n>update</span><span class=p>()</span>
+
+    <span class=n>page</span><span class=o>.</span><span class=n>title</span> <span class=o>=</span> <span class=s2>"GitHub Rlease内のファイルダウンロード数取得"</span>
+    <span class=n>page</span><span class=o>.</span><span class=n>vertical_alignment</span> <span class=o>=</span> <span class=n>ft</span><span class=o>.</span><span class=n>MainAxisAlignment</span><span class=o>.</span><span class=n>CENTER</span>
+
+    <span class=n>button</span><span class=o>=</span><span class=n>ft</span><span class=o>.</span><span class=n>OutlinedButton</span><span class=p>(</span><span class=s2>"ダウンロード数を取得"</span><span class=p>,</span><span class=n>on_click</span><span class=o>=</span><span class=n>on_click</span><span class=p>)</span>
+    <span class=n>entry</span><span class=o>=</span><span class=n>ft</span><span class=o>.</span><span class=n>TextField</span><span class=p>(</span><span class=n>label</span><span class=o>=</span><span class=s2>"URLを入力してください"</span><span class=p>)</span>
+    <span class=n>table</span><span class=o>=</span><span class=n>ft</span><span class=o>.</span><span class=n>DataTable</span><span class=p>(</span>
+            <span class=n>columns</span><span class=o>=</span><span class=p>[</span>
+                <span class=n>ft</span><span class=o>.</span><span class=n>DataColumn</span><span class=p>(</span><span class=n>ft</span><span class=o>.</span><span class=n>Text</span><span class=p>(</span><span class=s2>"ファイル名"</span><span class=p>)),</span>
+                <span class=n>ft</span><span class=o>.</span><span class=n>DataColumn</span><span class=p>(</span><span class=n>ft</span><span class=o>.</span><span class=n>Text</span><span class=p>(</span><span class=s2>"ダウンロード数"</span><span class=p>),</span> <span class=n>numeric</span><span class=o>=</span><span class=kc>True</span><span class=p>),</span>
+            <span class=p>]</span>
+    <span class=p>)</span>
+
+    <span class=n>dlg</span> <span class=o>=</span> <span class=n>ft</span><span class=o>.</span><span class=n>AlertDialog</span><span class=p>(</span>
+        <span class=n>title</span><span class=o>=</span><span class=n>ft</span><span class=o>.</span><span class=n>Text</span><span class=p>(</span><span class=s2>"エラーです。入力を確認してください。"</span><span class=p>)</span>
+
+    <span class=p>)</span>
+
+    <span class=n>page</span><span class=o>.</span><span class=n>add</span><span class=p>(</span>
+        <span class=n>ft</span><span class=o>.</span><span class=n>Row</span><span class=p>(</span>
+            <span class=p>[</span>
+                <span class=n>entry</span><span class=p>,</span>
+                <span class=n>button</span>
+            <span class=p>],</span>
+            <span class=n>alignment</span><span class=o>=</span><span class=n>ft</span><span class=o>.</span><span class=n>MainAxisAlignment</span><span class=o>.</span><span class=n>CENTER</span><span class=p>,</span>
+        <span class=p>),</span>
+        <span class=n>table</span><span class=p>,</span>
+    <span class=p>)</span>
+
+<span class=n>ft</span><span class=o>.</span><span class=n>app</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>main</span><span class=p>)</span>
+</code></pre></div><p>ChatGPT は使えませんでしたが、日本語記事と公式ドキュメントだけで作ることができました。<p>tkinter とは思想的にかなり違いそうなので、自分のように tkinter から来た人は最初面食らうかもしれませんが、すぐ慣れると思います。<h1 id=_5><font color=#ff5a09>感想</font></h1><p>このアプリを作る時に率直に思ったことは、<ul><li><p>「入れ子構造少し見にくい」</p><li><p>「ウィジェットのデザイン最高！！！」</p><li><p>「Table の中身の記述が tkinter とは真逆だけど、これに関しては tkinter がおかしい」</p><li><p>「コード量は少し増えるな」</p></ul><p>でした。<p>特にウィジェットに関しては文句のつけようがなく優秀で、ほっとリロードまで対応してたので感動しました。(tkinter が酷い分)<p>日本語サイトが少ないのは玉に瑕ですが、最近は徐々に増えていますし公式ドキュメントが非常に優秀であるため（tkinter も見習え）、思ったよりも困りませんでした。<p>Python の GUI ライブラリはいくつかあり、私も「PySimpleGUI」や「CustomTkinter」などを使ったことがあります。<p>しかしそれらと比べて 三周りぐらい垢抜けていますし、それらのライブラリはライセンスが厳しいことも多いため、割と自由な Flet はそういう意味でも使いやすいと思いました。<p>いくつかある欠点も「UI デザインと機能」という点で補って余るほどなので、今後 Python で色々作りたい方には Flet をおすすめしていこうと思います。</div><div class=tag-cloud><p><a href=/tag/puroguramingu.html>プログラミング</a> <a href=/tag/zi-zuo-tsu-ru.html>自作ツール</a> <a href=/tag/xiao-lu-hua.html>効率化</a></div><div class=neighbors><a class="btn float-left" title="GitHub Release でのダウンロード数を Python から取得する方法" href=/github_release_file_download.html> <i class="fa fa-angle-left"></i> Previous Post </a></div><div class=related-posts><h4>You might enjoy</h4><ul class=related-posts><li><a href=/yak_update6_6.html>Yukis Army knife ver6.6 公開</a><li><a href=/yak_update6_5.html>Yukis Army knife ver6.5 公開</a><li><a href=/yak_update6_4.html>Yukis Army knife ver6.4 公開</a><li><a href=/YAK-Intro.html>自作ソフト「Yukis Army knife」の紹介</a><li><a href=/github_release_file_download.html>GitHub Release でのダウンロード数を Python から取得する方法</a></ul></div></article><footer><p>© 2024 雪櫻<p>Built with <a href=http://getpelican.com target=_blank>Pelican</a> using <a href=http://bit.ly/flex-pelican target=_blank>Flex</a> theme</footer></main><script type=application/ld+json>
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 雪櫻ブログ ",
+  "url" : "",
+  "image": "/images/2024-02-18/icon.png",
+  "description": ""
+}
+</script>
