@@ -1,0 +1,169 @@
+<!doctype html><html lang=ja><meta charset=utf-8><meta content=IE=edge http-equiv=X-UA-Compatible><meta content=True name=HandheldFriendly><meta content=width=device-width,initial-scale=1.0 name=viewport><meta name=robots><link href=https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap rel=stylesheet><link href=/theme/stylesheet/style.min.css rel=stylesheet><link rel="shortcut icon" href=https://yukisakura001.github.io/favicon.ico type=image/vnd.microsoft.icon><link href=https://yukisakura001.github.io/favicon.ico rel=icon><link href=/theme/pygments/monokai.min.css id=pygments-light-theme rel=stylesheet><link href=/theme/font-awesome/css/fontawesome.css rel=stylesheet><link href=/theme/font-awesome/css/brands.css rel=stylesheet><link href=/theme/font-awesome/css/solid.css rel=stylesheet><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href=favicon.ico rel=icon type=image/x-icon><link title="雪櫻ブログ Atom" href=/feeds/all.atom.xml rel=alternate type=application/atom+xml><meta content=yukisakura name=author><meta content="HTML+css+TypeScript の勉強を兼ねて、構造化された箇条書きに見出しをつけるツールを作りました" name=description><meta content="プログラミング, 自作ツール, 効率化" name=keywords><meta content=雪櫻ブログ property=og:site_name><meta content="HTML+css+TypeScript で構造化した箇条書きに適切な見出しをつけるツールを作ってみた" property=og:title><meta content="HTML+css+TypeScript の勉強を兼ねて、構造化された箇条書きに見出しをつけるツールを作りました" property=og:description><meta content=en_US property=og:locale><meta content=/typescript_tool_kazyougaki.html property=og:url><meta content=article property=og:type><meta content="2024-05-04 00:00:00+09:00" property=article:published_time><meta property=article:modified_time><meta content=/author/yukisakura.html property=article:author><meta content=自作ツール property=article:section><meta content=プログラミング property=article:tag><meta content=自作ツール property=article:tag><meta content=効率化 property=article:tag><meta content=/images/2024-02-18/icon.png property=og:image><title>雪櫻ブログ – HTML+css+TypeScript で構造化した箇条書きに適切な見出しをつけるツールを作ってみた</title><meta content=website property=og:type><meta content=雪櫻ブログ property=og:site_name><meta content="雪櫻ブログ | HTML+css+TypeScript で構造化した箇条書きに適切な見出しをつけるツールを作ってみた" property=og:title><meta content=https://yukisakura001.github.io//typescript_tool_kazyougaki.html property=og:url><meta content=https://yukisakura001.github.io/images/2024-05-04/typescript_tool_kazyougaki/icat.png property=og:image><body class=light-theme><aside><div><a href=/> <img alt=雪櫻のブログ src=/images/2024-02-18/icon.png title=雪櫻のブログ> </a><h1><a href=/>雪櫻のブログ</a></h1><p>雑多なブログ帳~♪<nav><ul class=list><li><a href=/pages/konoburogunitsuite.html> このブログについて </a></ul></nav><ul class=social><li><a class=sc-github href=https://github.com/yukisakura001 target=_blank> <i class="fa-brands fa-github"></i> </a><li><a class=sc-youtube href=https://www.youtube.com/@yukisakura_pc target=_blank> <i class="fa-brands fa-youtube"></i> </a><li><a class=sc-twitter href=https://twitter.com/yukisakura001 target=_blank> <i class="fa-brands fa-twitter"></i> </a><li><a class=sc-rss href=feeds/all.atom.xml target=_blank> <i class="fa-solid fa-rss"></i> </a></ul></div></aside><main><nav><a href=/>Home</a><a href=/archives.html>記事履歴</a><a href=/categories.html>カテゴリー</a><a href=/tags.html>タグ一覧</a><a href=/feeds/all.atom.xml>Atom</a></nav><article class=single><header><h1 id=typescript_tool_kazyougaki>HTML+css+TypeScript で構造化した箇条書きに適切な見出しをつけるツールを作ってみた</h1><p>Posted on 2024年05月04日 (土) in <a href=/category/zi-zuo-tsu-ru.html>自作ツール</a></header><div><p><img alt=アイキャッチ src=/images/2024-05-04/typescript_tool_kazyougaki/icat.png><h1 id=_1><font color=#ff5a09>目次</font></h1><div class=toc><ul><li><a href=#_1 rel=nofollow>目次</a><li><a href=#_2 rel=nofollow>はじめに</a><li><a href=#_3 rel=nofollow>見た目</a><li><a href=#_4 rel=nofollow>コード</a><ul><li><a href=#html rel=nofollow>HTML</a><li><a href=#css rel=nofollow>css</a><li><a href=#typescript rel=nofollow>TypeScript</a></ul><li><a href=#_5 rel=nofollow>感想</a></ul></div><h1 id=_2><font color=#ff5a09>はじめに</font></h1><p>最近 Raact を勉強するために、HTML・css・Typescript の勉強を始めたのですが、それらの使い方を把握するために試しにツールを作りました。<p>このツールにした理由は、私はメモのとき構造化した箇条書きですることが多く、これだとあとから見返しにくいため、構造を維持したまま見返すためのツールがちょうど欲しかったためです。<p>そのため汎用性を一切捨てて自分のためのツールとして作っています。<p>一応コードを公開しますが、厳密にテストをしていないため不具合がある可能性がありますので、使用の際にはご注意ください。<h1 id=_3><font color=#ff5a09>見た目</font></h1><p><img alt=ツールの見た目 src=/images/2024-05-04/typescript_tool_kazyougaki/screen.png><h1 id=_4><font color=#ff5a09>コード</font></h1><h2 id=html><font color=#ff5a09>HTML</font></h2><div class=highlight><pre><span></span><code><span class=cp>&LT!DOCTYPE html></span>
+<span class=p><</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>"ja"</span><span class=p>></span>
+  <span class=p><</span><span class=nt>head</span><span class=p>></span>
+    <span class=p><</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>"utf-8"</span> <span class=p>/></span>
+    <span class=p><</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>"viewport"</span> <span class=na>content</span><span class=o>=</span><span class=s>"width=device-width, initial-scale=1"</span> <span class=p>/></span>
+    <span class=p><</span><span class=nt>title</span><span class=p>></span>箇条書き変換ツール<span class=p>&LT/</span><span class=nt>title</span><span class=p>></span>
+    <span class=p><</span><span class=nt>link</span> <span class=na>href</span><span class=o>=</span><span class=s>"style.css"</span> <span class=na>rel</span><span class=o>=</span><span class=s>"stylesheet"</span> <span class=p>/></span>
+    <span class=p><</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>"viewport"</span> <span class=na>content</span><span class=o>=</span><span class=s>"width=device-width,initial-scale=1"</span> <span class=p>/></span>
+  <span class=p>&LT/</span><span class=nt>head</span><span class=p>></span>
+
+  <span class=p><</span><span class=nt>body</span><span class=p>></span>
+    <span class=p><</span><span class=nt>h1</span><span class=p>></span>箇条書き変換ツール<span class=p>&LT/</span><span class=nt>h1</span><span class=p>></span>
+    <span class=p><</span><span class=nt>textarea</span>
+      <span class=na>id</span><span class=o>=</span><span class=s>"input"</span>
+      <span class=na>placeholder</span><span class=o>=</span><span class=s>"ここにテキストを入力してください"</span>
+    <span class=p>>&LT/</span><span class=nt>textarea</span><span class=p>></span>
+    <span class=p><</span><span class=nt>button</span> <span class=na>id</span><span class=o>=</span><span class=s>"convert"</span><span class=p>></span>変換<span class=p>&LT/</span><span class=nt>button</span><span class=p>></span>
+    <span class=p><</span><span class=nt>textarea</span>
+      <span class=na>id</span><span class=o>=</span><span class=s>"output"</span>
+      <span class=na>placeholder</span><span class=o>=</span><span class=s>"ここに変換結果が表示されます"</span>
+      <span class=na>readonly</span>
+    <span class=p>>&LT/</span><span class=nt>textarea</span><span class=p>></span>
+    <span class=p><</span><span class=nt>footer</span><span class=p>>&LT/</span><span class=nt>footer</span><span class=p>></span>
+    <span class=p><</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>"script.js"</span><span class=p>>&LT/</span><span class=nt>script</span><span class=p>></span>
+  <span class=p>&LT/</span><span class=nt>body</span><span class=p>></span>
+<span class=p>&LT/</span><span class=nt>html</span><span class=p>></span>
+</code></pre></div><h2 id=css><font color=#ff5a09>css</font></h2><div class=highlight><pre><span></span><code><span class=nt>textarea</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=k>width</span><span class=p>:</span><span class=w> </span><span class=mi>100</span><span class=kt>%</span><span class=p>;</span><span class=w> </span><span class=c>/* 横幅 */</span>
+<span class=w>  </span><span class=k>height</span><span class=p>:</span><span class=w> </span><span class=mi>200</span><span class=kt>px</span><span class=p>;</span><span class=w> </span><span class=c>/* 高さ */</span>
+<span class=w>  </span><span class=k>display</span><span class=p>:</span><span class=w> </span><span class=kc>block</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>button</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=k>text-align</span><span class=p>:</span><span class=w> </span><span class=kc>center</span><span class=p>;</span>
+<span class=w>  </span><span class=k>display</span><span class=p>:</span><span class=w> </span><span class=kc>block</span><span class=p>;</span>
+<span class=w>  </span><span class=k>margin</span><span class=p>:</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=kc>auto</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=typescript><font color=#ff5a09>TypeScript</font></h2><div class=highlight><pre><span></span><code><span class=n>let</span><span class=w> </span><span class=n>inputTxt</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>document</span><span class=p>.</span><span class=n>getElementById</span><span class=p>(</span><span class=ss>"input"</span><span class=p>)</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=n>HTMLInputElement</span><span class=p>;</span>
+<span class=n>let</span><span class=w> </span><span class=n>btn</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>document</span><span class=p>.</span><span class=n>getElementById</span><span class=p>(</span><span class=ss>"convert"</span><span class=p>)</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=n>HTMLButtonElement</span><span class=p>;</span>
+<span class=n>let</span><span class=w> </span><span class=n>outputTxt</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>document</span><span class=p>.</span><span class=n>getElementById</span><span class=p>(</span><span class=ss>"output"</span><span class=p>)</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=n>HTMLInputElement</span><span class=p>;</span>
+
+<span class=k>function</span><span class=w> </span><span class=n>replaceLeadingSpacesWithHash</span><span class=p>(</span><span class=k>input</span><span class=err>:</span><span class=w> </span><span class=n>string</span><span class=p>,</span><span class=w> </span><span class=nl>txt</span><span class=p>:</span><span class=w> </span><span class=n>string</span><span class=p>)</span><span class=err>:</span><span class=w> </span><span class=n>string</span><span class=w> </span><span class=err>{</span>
+<span class=w>  </span><span class=n>const</span><span class=w> </span><span class=n>leadingSpaces</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>input</span><span class=p>.</span><span class=k>match</span><span class=p>(</span><span class=o>/^</span><span class=err>\</span><span class=n>s</span><span class=o>*/</span><span class=p>);</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>leadingSpaces</span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>    </span><span class=n>const</span><span class=w> </span><span class=n>numSpaces</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>leadingSpaces</span><span class=o>[</span><span class=n>0</span><span class=o>]</span><span class=p>.</span><span class=n>length</span><span class=p>;</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>numSpaces</span><span class=w> </span><span class=o>></span><span class=w> </span><span class=mi>0</span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>      </span><span class=n>let</span><span class=w> </span><span class=n>replacement</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=ss>""</span><span class=p>;</span>
+<span class=w>      </span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>let</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o><</span><span class=w> </span><span class=n>Math</span><span class=p>.</span><span class=n>ceil</span><span class=p>(</span><span class=n>numSpaces</span><span class=w> </span><span class=o>/</span><span class=w> </span><span class=mi>2</span><span class=p>);</span><span class=w> </span><span class=n>i</span><span class=o>++</span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>        </span><span class=n>replacement</span><span class=w> </span><span class=o>+=</span><span class=w> </span><span class=n>txt</span><span class=p>;</span>
+<span class=w>      </span><span class=err>}</span>
+<span class=w>      </span><span class=k>return</span><span class=w> </span><span class=k>input</span><span class=p>.</span><span class=nf>replace</span><span class=p>(</span><span class=o>/^</span><span class=err>\</span><span class=n>s</span><span class=o>*/</span><span class=p>,</span><span class=w> </span><span class=n>replacement</span><span class=p>);</span>
+<span class=w>    </span><span class=err>}</span>
+<span class=w>  </span><span class=err>}</span>
+<span class=w>  </span><span class=k>return</span><span class=w> </span><span class=k>input</span><span class=p>;</span><span class=w> </span><span class=o>//</span><span class=w> </span><span class=n>空白がない場合やエラーの場合はそのまま返す</span>
+<span class=err>}</span>
+
+<span class=k>function</span><span class=w> </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=k>input</span><span class=err>:</span><span class=w> </span><span class=n>string</span><span class=p>)</span><span class=err>:</span><span class=w> </span><span class=n>number</span><span class=w> </span><span class=err>{</span>
+<span class=w>  </span><span class=n>const</span><span class=w> </span><span class=n>leadingSpaces</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>input</span><span class=p>.</span><span class=k>match</span><span class=p>(</span><span class=o>/^</span><span class=err>\</span><span class=n>s</span><span class=o>*/</span><span class=p>);</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>leadingSpaces</span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>    </span><span class=k>return</span><span class=w> </span><span class=n>leadingSpaces</span><span class=o>[</span><span class=n>0</span><span class=o>]</span><span class=p>.</span><span class=n>length</span><span class=p>;</span>
+<span class=w>  </span><span class=err>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=err>{</span>
+<span class=w>    </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=o>//</span><span class=w> </span><span class=k>No</span><span class=w> </span><span class=k>leading</span><span class=w> </span><span class=n>spaces</span>
+<span class=w>  </span><span class=err>}</span>
+<span class=err>}</span>
+
+<span class=k>function</span><span class=w> </span><span class=n>get_input</span><span class=p>()</span><span class=w> </span><span class=err>{</span>
+<span class=w>  </span><span class=n>let</span><span class=w> </span><span class=nl>content</span><span class=p>:</span><span class=w> </span><span class=n>string</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>inputTxt</span><span class=p>.</span><span class=k>value</span><span class=p>;</span>
+<span class=w>  </span><span class=n>let</span><span class=w> </span><span class=n>arrayFromString</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>content</span><span class=p>.</span><span class=n>split</span><span class=p>(</span><span class=ss>"\n"</span><span class=p>);</span>
+<span class=w>  </span><span class=n>let</span><span class=w> </span><span class=k>array</span><span class=err>:</span><span class=w> </span><span class=n>string</span><span class=err>[]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=err>[]</span><span class=p>;</span>
+<span class=w>  </span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>let</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o><</span><span class=w> </span><span class=n>arrayFromString</span><span class=p>.</span><span class=n>length</span><span class=w> </span><span class=o>-</span><span class=w> </span><span class=mi>1</span><span class=p>;</span><span class=w> </span><span class=n>i</span><span class=o>++</span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=p>(</span>
+<span class=w>      </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i + 1</span><span class=o>]</span><span class=p>)</span><span class=w> </span><span class=o>></span>
+<span class=w>      </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>)</span>
+<span class=w>    </span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>      </span><span class=k>array</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>replaceLeadingSpacesWithHash</span><span class=p>(</span>
+<span class=w>        </span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>.</span><span class=nf>replace</span><span class=p>(</span><span class=ss>"- "</span><span class=p>,</span><span class=w> </span><span class=ss>"# "</span><span class=p>),</span>
+<span class=w>        </span><span class=ss>"#"</span>
+<span class=w>      </span><span class=p>);</span>
+<span class=w>    </span><span class=err>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=k>if</span><span class=w> </span><span class=p>(</span>
+<span class=w>      </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i - 1</span><span class=o>]</span><span class=p>)</span><span class=w> </span><span class=o>></span>
+<span class=w>      </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>)</span>
+<span class=w>    </span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>      </span><span class=k>array</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>replaceLeadingSpacesWithHash</span><span class=p>(</span>
+<span class=w>        </span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>.</span><span class=nf>replace</span><span class=p>(</span><span class=ss>"- "</span><span class=p>,</span><span class=w> </span><span class=ss>"# "</span><span class=p>),</span>
+<span class=w>        </span><span class=ss>"#"</span>
+<span class=w>      </span><span class=p>);</span>
+<span class=w>    </span><span class=err>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=k>if</span><span class=w> </span><span class=p>(</span>
+<span class=w>      </span><span class=k>array</span><span class=o>[</span><span class=n>i - 1</span><span class=o>]</span><span class=p>.</span><span class=n>slice</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=ss>"#"</span><span class=w> </span><span class=o>&&</span>
+<span class=w>      </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>)</span><span class=w> </span><span class=o>==</span>
+<span class=w>        </span><span class=n>countLeadingSpaces</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i - 1</span><span class=o>]</span><span class=p>)</span>
+<span class=w>    </span><span class=p>)</span><span class=w> </span><span class=err>{</span>
+<span class=w>      </span><span class=k>array</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>replaceLeadingSpacesWithHash</span><span class=p>(</span>
+<span class=w>        </span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>.</span><span class=nf>replace</span><span class=p>(</span><span class=ss>"- "</span><span class=p>,</span><span class=w> </span><span class=ss>"# "</span><span class=p>),</span>
+<span class=w>        </span><span class=ss>"#"</span>
+<span class=w>      </span><span class=p>);</span>
+<span class=w>    </span><span class=err>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=err>{</span>
+<span class=w>      </span><span class=k>array</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>replaceLeadingSpacesWithHash</span><span class=p>(</span><span class=n>arrayFromString</span><span class=o>[</span><span class=n>i</span><span class=o>]</span><span class=p>,</span><span class=w> </span><span class=ss>""</span><span class=p>);</span>
+<span class=w>    </span><span class=err>}</span>
+<span class=w>  </span><span class=err>}</span>
+<span class=w>  </span><span class=n>content</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>array</span><span class=p>.</span><span class=k>join</span><span class=p>(</span><span class=ss>"\n"</span><span class=p>);</span>
+<span class=w>  </span><span class=n>outputTxt</span><span class=p>.</span><span class=k>value</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>content</span><span class=p>;</span>
+<span class=err>}</span>
+
+<span class=n>btn</span><span class=p>.</span><span class=n>addEventListener</span><span class=p>(</span><span class=ss>"click"</span><span class=p>,</span><span class=w> </span><span class=n>get_input</span><span class=p>,</span><span class=w> </span><span class=k>false</span><span class=p>);</span>
+</code></pre></div><details><summary>JavaScript</summary> <pre>
+  <code>
+var inputTxt = document.getElementById("input");
+var btn = document.getElementById("convert");
+var outputTxt = document.getElementById("output");
+function replaceLeadingSpacesWithHash(input, txt) {
+    var leadingSpaces = input.match(/^\s*/);
+    if (leadingSpaces) {
+        var numSpaces = leadingSpaces[0].length;
+        if (numSpaces > 0) {
+            var replacement = "";
+            for (var i = 0; i < Math.ceil(numSpaces / 2); i++) {
+                replacement += txt;
+            }
+            return input.replace(/^\s*/, replacement);
+        }
+    }
+    return input; // 空白がない場合やエラーの場合はそのまま返す
+}
+function countLeadingSpaces(input) {
+    var leadingSpaces = input.match(/^\s*/);
+    if (leadingSpaces) {
+        return leadingSpaces[0].length;
+    }
+    else {
+        return 0; // No leading spaces
+    }
+}
+function get_input() {
+    var content = inputTxt.value;
+    var arrayFromString = content.split("\n");
+    var array = [];
+    for (var i = 0; i < arrayFromString.length - 1; i++) {
+        if (countLeadingSpaces(arrayFromString[i + 1]) >
+            countLeadingSpaces(arrayFromString[i])) {
+            array[i] = replaceLeadingSpacesWithHash(arrayFromString[i].replace("- ", "# "), "#");
+        }
+        else if (countLeadingSpaces(arrayFromString[i - 1]) >
+            countLeadingSpaces(arrayFromString[i])) {
+            array[i] = replaceLeadingSpacesWithHash(arrayFromString[i].replace("- ", "# "), "#");
+        }
+        else if (array[i - 1].slice(0, 1) == "#" &&
+            countLeadingSpaces(arrayFromString[i]) ==
+                countLeadingSpaces(arrayFromString[i - 1])) {
+            array[i] = replaceLeadingSpacesWithHash(arrayFromString[i].replace("- ", "# "), "#");
+        }
+        else {
+            array[i] = replaceLeadingSpacesWithHash(arrayFromString[i], "");
+        }
+    }
+    content = array.join("\n");
+    outputTxt.value = content;
+}
+btn.addEventListener("click", get_input, false);
+</code>
+</pre></details><h1 id=_5><font color=#ff5a09>感想</font></h1><p>TypeScript を初めて触ったためまだ不慣れで、結構 chatGPT に頼ってしまいましたが、なんとか最低限の書き方を理解できた気がしました。<p>今回はのツールは実際に自分で使いながらブラッシュアップし、Typescript のコードを改良したり、Python として YAk のツールに追加して活用していこうと思います。</div><div class=tag-cloud><p><a href=/tag/puroguramingu.html>プログラミング</a> <a href=/tag/zi-zuo-tsu-ru.html>自作ツール</a> <a href=/tag/xiao-lu-hua.html>効率化</a></div><div class=neighbors><a class="btn float-left" title="Yukis Army knife ver7.0 公開" href=/yak_update7_0.html> <i class="fa fa-angle-left"></i> Previous Post </a></div><div class=related-posts><h4>You might enjoy</h4><ul class=related-posts><li><a href=/yak_update7_0.html>Yukis Army knife ver7.0 公開</a><li><a href=/python_flet_appfirst.html>Flet で GitHub Release のダウンロード数を取得するアプリを作ってみた</a><li><a href=/yak_update6_6.html>Yukis Army knife ver6.6 公開</a><li><a href=/yak_update6_5.html>Yukis Army knife ver6.5 公開</a><li><a href=/yak_update6_4.html>Yukis Army knife ver6.4 公開</a></ul></div></article><footer><p>© 2024 雪櫻<p>Built with <a href=http://getpelican.com target=_blank>Pelican</a> using <a href=http://bit.ly/flex-pelican target=_blank>Flex</a> theme</footer></main><script type=application/ld+json>
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 雪櫻ブログ ",
+  "url" : "",
+  "image": "/images/2024-02-18/icon.png",
+  "description": ""
+}
+</script>
