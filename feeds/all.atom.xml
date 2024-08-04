@@ -7,7 +7,8 @@
 &lt;li&gt;&lt;a href="#_2" rel="nofollow"&gt;どのようなアプリなのか&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#_3" rel="nofollow"&gt;コード&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#_4" rel="nofollow"&gt;使い方&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#_5" rel="nofollow"&gt;感想&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_5" rel="nofollow"&gt;注意点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#_6" rel="nofollow"&gt;感想&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;h1 id="_2"&gt;&lt;font color="#ff5a09"&gt;どのようなアプリなのか&lt;/font&gt;&lt;/h1&gt;
@@ -59,7 +60,17 @@
 &lt;p&gt;画像がウィンドウとして表示される&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id="_5"&gt;&lt;font color="#ff5a09"&gt;感想&lt;/font&gt;&lt;/h1&gt;
+&lt;h1 id="_5"&gt;&lt;font color="#ff5a09"&gt;注意点&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;このスクリプトを使っても上手くいかないときは、以下の方法で対策してみてください&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;ps1 ファイルの文字コードを「ANSI」にする&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;コマンドプロンプトで「powerShell -WindowStyle Hidden -ExecutionPolicy RemoteSigned -File "ps1 ファイル名"」で実行してみる&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="_6"&gt;&lt;font color="#ff5a09"&gt;感想&lt;/font&gt;&lt;/h1&gt;
 &lt;p&gt;正直 PowerShell で GUI を作れるとは知らなかったので驚きました。&lt;/p&gt;
 &lt;p&gt;ただ ps1 は bat と違って直接コマンドを実行できないので、bat から簡単に起動できるようにしたり、ショートカットを使ってタスクバーから起動できるようにするなど、使うには工夫する必要がありそうです。&lt;/p&gt;
 &lt;p&gt;何ができるのかはまだよく分かっていませんが、しばらく練習も兼ねてデスクトップ向けの簡易ツールは PowerShell で作ることになりそうです。&lt;/p&gt;</content><category term="自作ツール"></category><category term="プログラミング"></category><category term="自作ツール"></category><category term="効率化"></category></entry><entry><title>自作の Notion テンプレート「メモ帳テンプレート」紹介</title><link href="/notion_tool_memo.html" rel="alternate"></link><published>2024-07-27T00:00:00+09:00</published><updated>2024-07-27T00:00:00+09:00</updated><author><name>yukisakura</name></author><id>tag:None,2024-07-27:/notion_tool_memo.html</id><summary type="html">&lt;p&gt;自作の Notion1 テンプレート「メモ帳テンプレート」を紹介します。シンプルで使いやすいメモ帳をお探しの方や、自分好みにカスタマイズし易いメモ帳をお探しの方はぜひ見てみてください。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="アイキャッチ" src="/images/2024-07-27/notion_tool_memo/icat.png"&gt;&lt;/p&gt;
